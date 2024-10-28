@@ -1,0 +1,26 @@
+title TEMS Contract negotiation and data access Workflow
+
+actor Participant Employee#lightblue
+participant Local Index#lightyellow
+participant Search UI#lightyellow
+participant Search Engine#lightyellow
+participant Validation API #lightyellow
+participant Contract Service#lightyellow
+participant Public API#lightyellow
+participant Local Catalog#lightyellow
+participant Data Server #lightyellow
+participant Federated Index#lightgreen
+
+== Accessing resource (metadata) ==
+Participant Employee->Search UI: Click on resource details
+Search UI->Search Engine: Execute the data request
+Search Engine->Public API: Query resource on id URL\nwith token forwarding ?
+Public API->Validation API: Request access permission
+Validation API->Local Catalog: Request dataset contract
+Contract Service->Public API: Grant Access
+Public API->Data Server: Retrieve data
+Public API->Search Engine: Return data
+Search Engine->Search UI: Display data
+
+#Accessing binary content of the asset is out of scope
+# Is data equals information? Information vs data vs metadata?
