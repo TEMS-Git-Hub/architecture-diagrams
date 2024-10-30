@@ -6,7 +6,7 @@ actor Participant Employee#lightblue
 participant Data Server#lightblue
 participant "Data bus (needs development\nand configuration)" as DataBus #Lightyellow
 participant Local Index#lightyellow
-participant Connector UI#lightyellow
+participant Auth UI#lightyellow
 participant Contract Service#lightyellow
 participant Policy Service#lightyellow
 participant Local Catalog#lightyellow
@@ -14,7 +14,7 @@ participant Vocabulary Registry#lightgreen
 participant Federated Index#lightgreen
 
 == Contract Creation ==
-Participant Admin->Connector UI: Authenticate on Connector UI dashboard
+Participant Admin->Auth UI: Authenticate on Connector UI dashboard
 Participant Admin->Policy Service: Create policies rules
 Participant Admin->Contract Service: Create new contract - specifiying policies
 
