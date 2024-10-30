@@ -8,7 +8,7 @@ participant Validation API #lightyellow
 participant Contract Service#lightyellow
 participant Public API#lightyellow
 participant Local Catalog#lightyellow
-participant Data Server #lightyellow
+participant Data bus #lightyellow
 participant Federated Index#lightgreen
 
 == Accessing resource (metadata) ==
@@ -16,9 +16,10 @@ Participant Employee->Search UI: Click on resource details
 Search UI->Search Engine: Execute the data request
 Search Engine->Public API: Query resource on id URL\nwith token forwarding ?
 Public API->Validation API: Request access permission
-Validation API->Local Catalog: Request dataset contract
-Contract Service->Public API: Grant Access
-Public API->Data Server: Retrieve data
+Validation API->Local Catalog: Retrieve dataset contract
+Validation API->Contract Service: Retrieve contract details
+Validation API->Public API: Grant Access
+Public API->Data bus: Retrieve data
 Public API->Search Engine: Return data
 Search Engine->Search UI: Display data
 
