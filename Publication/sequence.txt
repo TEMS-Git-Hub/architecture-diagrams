@@ -14,7 +14,7 @@ participant Vocabulary Registry#lightgreen
 participant Federated Index#lightgreen
 
 == Contract Creation ==
-Participant Admin->Auth UI: Authenticate on Connector UI dashboard
+Participant Admin->Auth UI: Authenticate on dashboard
 Participant Admin->Policy Service: Create policies rules
 Participant Admin->Contract Service: Create new contract - specifiying policies
 
