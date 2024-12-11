@@ -1,4 +1,4 @@
-title This is a title
+title Onboarding workflow description
 
 participantgroup Enterprise A
   actor "LE(A)R" as L
