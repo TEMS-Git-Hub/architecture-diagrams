@@ -1,0 +1,42 @@
+title This is a title
+
+participantgroup Enterprise A
+  actor "LE(A)R" as L
+  participant "Enterprise A" as A
+end
+
+participantgroup TEMS
+  participant "TEMS Onboarding\nService" as O
+  actor "TEMS\nGovernance" as G
+end
+
+participantgroup Orange
+  database "TEMS\nWallet" as W
+  database "Enterprise A's\nWallet" as AW
+  participant "Orange SSI\nservice" as SSI
+end
+
+A -> O: Request Enrolment\n<Justification Document, VCs,\nWallet Address, LE(A)R ID...>
+O -> G: Submit Enrolment\n<Justification Document, VCs,\nWallet Address, LE(A)R ID...>
+G -> G: Enrolment Validation
+G -> A: Notify Membership Validation
+
+G -> SSI: Create Company Wallet and ID
+SSI -> AW: Create\n<LE(A)R ID>
+
+activate AW
+SSI ->A: Wallet Ownership
+
+AW -> L: Credential Offer (LE(A)R VC)
+L <--> AW: Accept Credential Offer (OID4VCI)
+L -> L: Store LE(A)R VC
+
+W -> AW: Credential Offer\n(TEMS Member VC, TEMS Issuer VC, ...)
+AW -> L: Notify Credential Offer
+L <--> AW: Authenticate as LE(A)R (OID4VP)
+L -> AW: Accept Credential Offer
+AW <--> W: Accepte Credential Offer (ODI4VCI)
+AW -> AW: Store VC(s)
+W -> W: Register Member as Issuer\n(Trust Lists, etc.) 
+W -> G: Notify Membership
+G -> A: Notify Membership
