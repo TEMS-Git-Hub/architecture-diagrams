@@ -1,0 +1,48 @@
+@startuml
+
+Participant "TEMS\nOnboarding\nService" as O
+Actor "TEMS\nGovernance" as G
+Database "TEMS\nWallet" as W
+Participant "Orange\nSSI\nService" as SSI
+Database "Enterprise A's\nWallet" as CW
+Actor "LE(A)R" as L
+Participant "Candidate\nEnterprise A" as C
+
+box "TEMS"
+    participant O
+    participant G
+    participant W
+end box
+
+box "Orange"
+    participant W
+    participant CW
+    participant SSI
+end box
+
+C -> O: Request Enrolment\n<Justification Document, VCs,\nWallet Address, LE(A)R ID...>
+O -> G: Submit Enrolment\n<Justification Document, VCs,\nWallet Address, LE(A)R ID...>
+G -> G: Enrolment Validation
+G -> C: Notify Membership Validation
+
+G -> SSI: Create Company Wallet and ID
+SSI -> CW: Create\n<LE(A)R ID>
+
+activate CW
+SSI -> C: Wallet Ownership
+
+CW -> L: Credential Offer (LE(A)R VC)
+L <--> CW: Accept Credential Offer (OID4VCI)
+L -> L: Store LE(A)R VC
+
+W -> CW: Credential Offer\n(TEMS Member VC, TEMS Issuer VC, ...)
+CW -> L: Notify Credential Offer
+L <--> CW: Authenticate as LE(A)R (OID4VP)
+L -> CW: Accept Credential Offer
+CW <--> W: Accepte Credential Offer (ODI4VCI)
+CW -> CW: Store VC(s)
+W -> W: Register Member as Issuer\n(Trust Lists, etc.) 
+W -> G: Notify Membership
+G -> C: Notify Membership
+
+@enduml
