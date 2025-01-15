@@ -4,7 +4,7 @@ actor Participant Employee#lightblue
 participant Local Index#lightyellow
 participant Search UI#lightyellow
 participant Search Engine#lightyellow
-participant Validation API #lightyellow
+participant Management API #lightyellow
 participant Contract Service#lightyellow
 participant Public API#lightyellow
 participant Local Catalog#lightyellow
@@ -15,10 +15,10 @@ participant Federated Index#lightgreen
 Participant Employee->Search UI: Click on resource details
 Search UI->Search Engine: Execute the data request
 Search Engine->Public API: Query resource on id URL\nwith token forwarding ?
-Public API->Validation API: Request access permission
-Validation API->Local Catalog: Retrieve dataset contract
-Validation API->Contract Service: Retrieve contract details
-Validation API->Public API: Grant Access
+Public API->Management API: Request access permission
+Management API->Local Catalog: Retrieve dataset contract
+Management API->Contract Service: Retrieve contract details
+Management API->Public API: Grant Access
 Public API->Data bus: Retrieve data
 Public API->Search Engine: Return data
 Search Engine->Search UI: Display data
