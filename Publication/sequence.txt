@@ -2,7 +2,6 @@ title TEMS Publication and contract management Workflow
 
 # Existing in the participant
 actor Participant Admin#lightblue
-actor Participant Employee#lightblue
 participant Data Server#lightblue
 participant "Data bus (needs development\nand configuration)" as DataBus #Lightyellow
 participant Local Index#lightyellow
