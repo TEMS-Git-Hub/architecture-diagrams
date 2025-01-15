@@ -6,8 +6,9 @@ participant Personal Wallet#lightyellow
 participant Search UI#lightyellow
 participant Search Engine #lightyellow
 participant Local Index#lightyellow
-participant Contract Service#lightyellow
-participant Local Catalog#lightyellow
+participant Management API #lightyellow
+participant Contract Service #lightyellow
+#participant Local Catalog#lightyellow
 participant Data Bus #lightyellow
 participant Federated Index#lightgreen
 #participant Federated Catalog#lightgreen
@@ -19,12 +20,13 @@ ParticipantEmployee->Personal Wallet: Authentication workflow
 ParticipantEmployee->Search UI: Enter search criteria
 Search UI->Search Engine: Execute the\n search request
 Search Engine->Federated Index: Retrieve the list of local indexes for the given shape
-Search Engine->Contract Service: Negotiate access to indexes\n<color:#red>Not in V1
+Search Engine->Management API: Negotiate access to indexes\n<color:#red>Not in V1
 Search Engine->Local Index: Query local indexes
 Search Engine->Search UI: Display list of results
 == Negotiation and data access ==
 ParticipantEmployee->Search UI: Click on details
-Search UI->Contract Service: Negotiation workflow
+Search UI->Management API: Negotiation workflow
+Management API->Contract Service: Negotiation workflow
 Search UI->ParticipantEmployee: Display search results
 
 # Generic shape requirements: Should everything have some information like rdfs:title / rdfs:author etc ?
