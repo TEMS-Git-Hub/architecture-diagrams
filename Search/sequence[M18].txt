@@ -1,0 +1,35 @@
+title TEMS Search and data discovery M18
+
+# Existing in the participant
+actor ParticipantEmployee#lightblue
+participant Personal Wallet#lightyellow
+participant Search UI#lightyellow
+participant Search Engine #lightyellow
+participant Local Index#lightyellow
+participant Management API #lightyellow
+participant Contract Service #lightyellow
+#participant Local Catalog#lightyellow
+participant Data Bus #lightyellow
+participant Federated Catalogue#lightgreen
+#participant Federated Catalog#lightgreen
+
+== Authenticate ==
+ParticipantEmployee->Personal Wallet: Authentication workflow
+== Search ==
+# We need a way for the seach UI to work as the Employee
+ParticipantEmployee->Search UI: Enter search criteria
+Search UI->Search Engine: Execute the\n search request
+Search Engine->Federated Catalogue: Retrieves list of data offerings matching search criteria
+Search Engine->Management API: Negotiate access to one dataset\n and the associated index
+Management API->Contract Service: Negotiation workflow
+Search Engine->Search UI: Display list of results
+== Negotiation and data access ==
+ParticipantEmployee->Search UI: Filter results
+Search UI->Search Engine: Build search query
+Search Engine->Local Index: Requests Indexes
+Search UI->ParticipantEmployee: Display search results
+ParticipantEmployee->Search UI: Click on details of one asset
+Search UI->Management API: Negotiation workflow
+Management API->Contract Service: Negotiation workflow
+Search UI->ParticipantEmployee: Access the asset details
+# Generic shape requirements: Should everything have some information like rdfs:title / rdfs:author etc ?
