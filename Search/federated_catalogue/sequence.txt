@@ -1,0 +1,80 @@
+title Federated Catalogue
+
+
+actor User
+control Keycloak
+participant API
+participant VerificationService
+participant SDStore
+participant SchemaStore
+database GraphDB
+
+
+== Authentication ==
+User->Keycloak: Retrieve access token
+Keycloak-->User: Return acces & refresh token
+== Request self-descriptions ==
+User->API: GET /self-descriptions
+activate API
+activate SDStore
+API->SDStore: Retrieves list of self-descriptions
+SDStore-->API: Returns a list of self-descriptions
+deactivate SDStore
+API-->User: Returns a list of self-descriptions
+deactivate API
+== Request specific self-description ==
+User->API: GET /self-descriptions/{sd_hash}
+activate API
+activate SDStore
+API->SDStore: Retrieves self-description
+SDStore-->API: Returns self-description
+deactivate SDStore
+API-->User: Returns a self-description
+deactivate API
+== Adding self-description ==
+User->API: POST /self-descriptions
+activate API
+API->VerificationService: Verify self-description
+activate VerificationService
+VerificationService-->VerificationService: Verify syntax
+VerificationService-->VerificationService:Verify semantic
+VerificationService-->VerificationService: Extract SD type
+VerificationService-->VerificationService: Verify schema
+VerificationService-->VerificationService: Verify signatures
+VerificationService-->VerificationService: Extract participant
+VerificationService-->VerificationService: Extract claims
+VerificationService-->API: Returns VerificationResult
+deactivate VerificationService
+activate SDStore
+API->SDStore: Store self-description
+SDStore-->API: OK
+deactivate SDStore
+API-->User: Return self-description meta-data
+deactivate API
+== Revoke self-description ==
+User->API: POST /self-descriptions/{sd_hash}/revoke
+activate API
+API->SDStore: Retrieves self-description
+activate SDStore
+SDStore->API: Returns self-description meta-data
+API->SDStore: Update SD status to REVOKED
+SDStore-->SDStore: Retrieve credential subject
+SDStore->GraphDB: Delete claims for credential subject
+SDStore-->API: OK
+deactivate SDStore
+API-->User: Return self-description meta-data
+deactivate API
+== Adding an schema (ontology/vocabulary) ==
+User->API: POST /schemas
+activate API
+API->SchemaStore: Add schema
+activate SchemaStore
+SchemaStore-->SchemaStore: Analyse type
+SchemaStore-->SchemaStore: Extract or generate ID
+SchemaStore-->SchemaStore: Extract defined URLs
+SchemaStore-->SchemaStore: Check duplicate URLs
+SchemaStore-->SchemaStore: Store schema
+SchemaStore-->API: Returns schemaID
+deactivate SchemaStore
+API-->User: Returns schemaID
+deactivate API
