@@ -260,7 +260,7 @@
             </child>
           </child>
         </child>
-        <child xsi:type="archimate:DiagramObject" id="id-0f66c05969e04efcab67123774e2277f" targetConnections="id-3edf8487bf0546e0ad30a03d6180f91c id-144e75bac1aa48c2ad5a7a7b1e2bfaac id-947b139bdcc444188d9c8c1f7d9dac78 id-a752e495b30a48a8ad68f5a4ebd59714" archimateElement="id-db695db6701348099bd2faa2c08cd285">
+        <child xsi:type="archimate:DiagramObject" id="id-0f66c05969e04efcab67123774e2277f" targetConnections="id-3edf8487bf0546e0ad30a03d6180f91c id-144e75bac1aa48c2ad5a7a7b1e2bfaac id-a752e495b30a48a8ad68f5a4ebd59714" archimateElement="id-db695db6701348099bd2faa2c08cd285">
           <bounds x="756" y="312" width="205" height="84"/>
           <sourceConnection xsi:type="archimate:Connection" id="id-0b00cebfdb624d31bb4b9c6c67c42e24" source="id-0f66c05969e04efcab67123774e2277f" target="id-55d2167238704a378273b60f985812a1" archimateRelationship="id-b6204b83d8ba48b88acca9eefe00911d">
             <feature name="labelExpression" value="F.1"/>
@@ -277,29 +277,6 @@
         </child>
         <child xsi:type="archimate:DiagramObject" id="id-073784cda502498bb3b7161efe8aee62" textAlignment="1" archimateElement="id-0b31886167fc4f19ac35a2f59b548fb8">
           <bounds x="72" y="492" width="613" height="217"/>
-          <child xsi:type="archimate:DiagramObject" id="id-6ff152a9327849dda95b8af046f0d188" font="1|Sans|8.0|0|GTK|1|" fillColor="#c9e7b7" archimateElement="id-330b958d23bc4ac4932de28c7014a9bf">
-            <bounds x="24" y="48" width="120" height="55"/>
-            <sourceConnection xsi:type="archimate:Connection" id="id-947b139bdcc444188d9c8c1f7d9dac78" source="id-6ff152a9327849dda95b8af046f0d188" target="id-0f66c05969e04efcab67123774e2277f" archimateRelationship="id-6d2eef0c637b4f1cae4a69c914a522a9">
-              <feature name="labelExpression" value="E.1"/>
-              <bendpoint startX="24" startY="-135" endX="-678" endY="78"/>
-              <bendpoint startX="708" startY="-135" endX="6" endY="78"/>
-            </sourceConnection>
-            <sourceConnection xsi:type="archimate:Connection" id="id-1321bf56956e45d387eabcd58fe970ac" source="id-6ff152a9327849dda95b8af046f0d188" target="id-db0a7145ea884b868a666a06e88a9d37" archimateRelationship="id-aa4dde2740b74b00a033b90fa592eb95">
-              <feature name="labelExpression" value="E.3"/>
-              <bendpoint startX="72" startY="10" endX="-629" endY="-17"/>
-              <bendpoint startX="72" startY="174" endX="-630" endY="150"/>
-              <bendpoint startX="636" startY="177" endX="-66" endY="150"/>
-            </sourceConnection>
-            <sourceConnection xsi:type="archimate:Connection" id="id-83a211a2a31d44ceb3523b384d6c15b9" source="id-6ff152a9327849dda95b8af046f0d188" target="id-048756fb55ae48a49ca00a53cdb4cf39" archimateRelationship="id-8871ebc253434d2091ae76f3c2e89fa0">
-              <feature name="labelExpression" value="E.2"/>
-              <bendpoint startX="-108" startY="-2" endX="-78" endY="-234"/>
-              <bendpoint startX="-108" startY="190" endX="-78" endY="-42"/>
-              <bendpoint startX="-48" startY="190" endX="6" endY="-42"/>
-            </sourceConnection>
-            <child xsi:type="archimate:Note" id="id-336707188dfb4c0990acc1cc9a14263a" textAlignment="1" fillColor="#ff7800">
-              <bounds width="16" height="16"/>
-            </child>
-          </child>
           <child xsi:type="archimate:DiagramObject" id="id-b13e3f98b965488181b36efcf8944435" archimateElement="id-266c8d3ad9334879a502244123305d3e">
             <bounds x="168" y="48" width="120" height="55"/>
             <sourceConnection xsi:type="archimate:Connection" id="id-2f61acdb2bcb4a3db69eee13a8056352" source="id-b13e3f98b965488181b36efcf8944435" target="id-7f981ec46a864e35a0214d5856c5bce3" archimateRelationship="id-dee4715b96e44313ac6892b65121d0b3">
@@ -353,14 +330,11 @@
             </child>
           </child>
         </child>
-        <child xsi:type="archimate:DiagramObject" id="id-db0a7145ea884b868a666a06e88a9d37" targetConnections="id-f7bd44a6d9454eaa921e0a5e47f8c66c id-1321bf56956e45d387eabcd58fe970ac" archimateElement="id-9fb37c1546bf450c98ce0b92e1652c1b">
+        <child xsi:type="archimate:DiagramObject" id="id-db0a7145ea884b868a666a06e88a9d37" targetConnections="id-f7bd44a6d9454eaa921e0a5e47f8c66c" archimateElement="id-9fb37c1546bf450c98ce0b92e1652c1b">
           <bounds x="756" y="552" width="205" height="84"/>
           <child xsi:type="archimate:Note" id="id-5aaa95334ee24376a0039387fd6c16bb" textAlignment="1" fillColor="#ff7800">
             <bounds width="16" height="16"/>
           </child>
-        </child>
-        <child xsi:type="archimate:DiagramObject" id="id-048756fb55ae48a49ca00a53cdb4cf39" targetConnections="id-83a211a2a31d44ceb3523b384d6c15b9" archimateElement="id-f15e7c2272864877b0eefce02dc62a3e">
-          <bounds x="120" y="792" width="15" height="15"/>
         </child>
       </child>
       <child xsi:type="archimate:DiagramObject" id="id-ec63a5e029cc4ea592a45d79dd2fa299" targetConnections="id-ca50bd1ddc6e490b98f5157d85601251" archimateElement="id-5d99ddc6ccda414dbd43251d3193b58d">
@@ -648,12 +622,6 @@ Consuming asset scenario
 	D.10 The asset is retrieved and adapted to TEMS metadata through the Data Adapter Service
 	D.11 The asset is then sent to the Consumer Data Space Connector
 	D.12 The Data Transfer Service logs the transaction in the Observability Service
-
-Data Marketplace scenario
-
-	E.1 The Data Marketplace presents offerings gathered from the Federated Catalogue
-	E.2 An offering is acquired, the scenario then continue from D.2
-	E.3 The transaction is logged in the Observability Service
 
 Federated Catalog scenarios
 	
