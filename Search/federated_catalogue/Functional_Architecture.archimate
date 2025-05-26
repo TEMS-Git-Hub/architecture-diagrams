@@ -2,42 +2,42 @@
 <archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:archimate="http://www.archimatetool.com/archimate" name="[Tems] Functional Architecture" id="id-c805f34e1ee548e197693a398b94c288" version="5.0.0">
   <folder name="Strategy" id="id-4ddf15d455784b07b3e3938353a02e0a" type="strategy"/>
   <folder name="Business" id="id-279f824e35224fa08cf3f762cf64f4e9" type="business">
-    <element xsi:type="archimate:BusinessService" name="Onboarding (ORA + SB)" id="id-150f2ceeafc14fa0858c10ee07b71e98"/>
+    <element xsi:type="archimate:BusinessService" name="Onboarding" id="id-150f2ceeafc14fa0858c10ee07b71e98"/>
     <element xsi:type="archimate:BusinessFunction" name="Business Function" id="id-a27b5e4bf3b14d72847de7082602c691"/>
-    <element xsi:type="archimate:BusinessService" name="Search (SB)" id="id-875bd4f27c4745eda0e08e1b57f57460"/>
+    <element xsi:type="archimate:BusinessService" name="Search" id="id-875bd4f27c4745eda0e08e1b57f57460"/>
     <element xsi:type="archimate:BusinessFunction" name="User Interface" id="id-eeaa0f20e3184d67911cf85b2f0d5dc5"/>
     <element xsi:type="archimate:BusinessFunction" name="Trust Framework" id="id-a5f85d949b8c48e3982378b0d4d001e4"/>
     <element xsi:type="archimate:BusinessFunction" name="User Interface" id="id-c34f664b171b4681bd8344844f0b52e6"/>
     <element xsi:type="archimate:BusinessFunction" name="Search Service" id="id-50740d143f234a1b9758168bd59b1998"/>
     <element xsi:type="archimate:BusinessFunction" name="Federated Indexes" id="id-aaccef3c86344be6955794fda937db84"/>
-    <element xsi:type="archimate:BusinessService" name="Federated Catalog (DAW)" id="id-db695db6701348099bd2faa2c08cd285"/>
-    <element xsi:type="archimate:BusinessService" name="Monitoring (ORA)" id="id-5d99ddc6ccda414dbd43251d3193b58d"/>
+    <element xsi:type="archimate:BusinessService" name="Federated Catalogue" id="id-db695db6701348099bd2faa2c08cd285"/>
+    <element xsi:type="archimate:BusinessService" name="Monitoring" id="id-5d99ddc6ccda414dbd43251d3193b58d"/>
     <element xsi:type="archimate:BusinessService" name="TEMS Services" id="id-435cbd04a7d242dfaf55252b371f8969"/>
     <element xsi:type="archimate:BusinessFunction" name="Data M" id="id-6defe6ba89554eb99a4903aaf8c2987f"/>
     <element xsi:type="archimate:BusinessService" name="Data Marketplace (DAW)" id="id-330b958d23bc4ac4932de28c7014a9bf"/>
     <element xsi:type="archimate:BusinessService" name="DSC Services" id="id-266c8d3ad9334879a502244123305d3e"/>
     <element xsi:type="archimate:BusinessService" name="Business Service (copy)" id="id-75769bcb9d1a4846bd4e6a3bc2381eba"/>
-    <element xsi:type="archimate:BusinessService" name="App store (TBD)" id="id-7a89ff6bdcaa4b689d1230f9cb720387"/>
+    <element xsi:type="archimate:BusinessService" name="App store" id="id-7a89ff6bdcaa4b689d1230f9cb720387"/>
     <element xsi:type="archimate:BusinessService" name="Business Service (copy)" id="id-9a1d268c84b147e0afd6c62801a411f2"/>
-    <element xsi:type="archimate:BusinessService" name="Labelling (SQS)" id="id-182408c335344f57a00a48a9b68867fb"/>
-    <element xsi:type="archimate:BusinessService" name="Billing (FIN)" id="id-bff25490b807471d85ff6953e00fedb6"/>
-    <element xsi:type="archimate:BusinessService" name="Data Quality Assessment (1001 Lakes)" id="id-346e7a05ffcc456bb6eacee3cd7f7a9d"/>
-    <element xsi:type="archimate:BusinessService" name="Contract Management     (ORA + 1001 Lakes)" id="id-35f9bd0b23eb4d56af47c2c2b8151cd9"/>
-    <element xsi:type="archimate:BusinessService" name="Vocabulary Hub (SB)" id="id-5e81b31ff2ad402ab392af201bd8944b"/>
-    <element xsi:type="archimate:BusinessService" name="Observability (ORA)" id="id-9fb37c1546bf450c98ce0b92e1652c1b"/>
+    <element xsi:type="archimate:BusinessService" name="Labelling" id="id-182408c335344f57a00a48a9b68867fb"/>
+    <element xsi:type="archimate:BusinessService" name="Billing" id="id-bff25490b807471d85ff6953e00fedb6"/>
+    <element xsi:type="archimate:BusinessService" name="Data Quality Assessment" id="id-346e7a05ffcc456bb6eacee3cd7f7a9d"/>
+    <element xsi:type="archimate:BusinessService" name="Contract Management" id="id-35f9bd0b23eb4d56af47c2c2b8151cd9"/>
+    <element xsi:type="archimate:BusinessService" name="Vocabulary Hub" id="id-5e81b31ff2ad402ab392af201bd8944b"/>
+    <element xsi:type="archimate:BusinessService" name="Observability" id="id-9fb37c1546bf450c98ce0b92e1652c1b"/>
     <element xsi:type="archimate:BusinessService" name="Data Space Connector" id="id-7b53d6d95e6c4b3aab9e25f91e98dc9c"/>
     <element xsi:type="archimate:BusinessFunction" name="Contract Negotiation" id="id-ec40d225dab54527baceffef95a37ba6"/>
     <element xsi:type="archimate:BusinessFunction" name="Transfer Process" id="id-4abb30df2444458a89c263044755d72d"/>
     <element xsi:type="archimate:BusinessService" name="Contract Management" id="id-2b9b105ca7e44b899ab11b5e9086bdcb"/>
     <element xsi:type="archimate:BusinessActor" name="Participant" id="id-4b6f96963dd14d089988363cdd958cf3"/>
     <element xsi:type="archimate:BusinessService" name="IAA" id="id-01ee7170cfcb4ac3acfe8a9e8fdcc7b8"/>
-    <element xsi:type="archimate:BusinessService" name="Data Space Connector (FIN)" id="id-542cc0408d454af8aa2c9ebbae9ca328"/>
+    <element xsi:type="archimate:BusinessService" name="Data Space Connector" id="id-542cc0408d454af8aa2c9ebbae9ca328"/>
     <element xsi:type="archimate:BusinessFunction" name="Contract Negotiation" id="id-fe4ca628c4ca4409857e4306ae899e69"/>
     <element xsi:type="archimate:BusinessFunction" name="Local Assets Catalog" id="id-c2cd1cde777949ae92f051f2dcda3178"/>
     <element xsi:type="archimate:BusinessFunction" name="Transfer Process" id="id-f43d26344f684598b19328def89f84ed"/>
     <element xsi:type="archimate:BusinessService" name="Observability" id="id-b573d7439beb49c3bbc01390dcedf7a5"/>
-    <element xsi:type="archimate:BusinessService" name="Data Transfer Service (FIN)" id="id-d1e1b8947c3e4d60b2ee53f445d191ac"/>
-    <element xsi:type="archimate:BusinessService" name="Data Adapter (FIN)" id="id-f292dd1eb434456482cba6fd5535c8d2"/>
+    <element xsi:type="archimate:BusinessService" name="Data Transfer Service" id="id-d1e1b8947c3e4d60b2ee53f445d191ac"/>
+    <element xsi:type="archimate:BusinessService" name="Data Adapter" id="id-f292dd1eb434456482cba6fd5535c8d2"/>
     <element xsi:type="archimate:BusinessService" name="Contract Management" id="id-3fdaed9631f341069c101cc4b6a31651"/>
     <element xsi:type="archimate:Representation" name="Data Resource" id="id-d5ed1fde85cd4c8780b5fa0a865ba2af"/>
     <element xsi:type="archimate:BusinessService" name="Resource Offering Editor" id="id-dc7f04821b1944e9abf3cf49054d9174"/>
@@ -51,13 +51,13 @@
     <element xsi:type="archimate:BusinessFunction" name="User Interface" id="id-26e105e85cdd4bef9a1720782cc41bea"/>
     <element xsi:type="archimate:BusinessFunction" name="Contract Negociation" id="id-0d47c54cdf13492e88349cf8aae343c7"/>
     <element xsi:type="archimate:BusinessFunction" name="Transfert Process" id="id-73e6556b85e342fea5fa3cc1be529ae7"/>
-    <element xsi:type="archimate:BusinessService" name="Data Transfer Service (FIN)" id="id-b3513850466b4291a54c8a05b4341cd1"/>
+    <element xsi:type="archimate:BusinessService" name="Data Transfer Service" id="id-b3513850466b4291a54c8a05b4341cd1"/>
     <element xsi:type="archimate:BusinessService" name="IAA" id="id-cd815384a2bc473399e895e5025a9106"/>
-    <element xsi:type="archimate:BusinessService" name="IAA (ORA)" id="id-b0a6ef3604a94890a182aa8df0f2dc12"/>
-    <element xsi:type="archimate:BusinessService" name="IAA (ORA)" id="id-f9342dcdf7dc472cad2816bcdffcfdee"/>
+    <element xsi:type="archimate:BusinessService" name="IAA" id="id-b0a6ef3604a94890a182aa8df0f2dc12"/>
+    <element xsi:type="archimate:BusinessService" name="IAA" id="id-f9342dcdf7dc472cad2816bcdffcfdee"/>
     <element xsi:type="archimate:Representation" name="Data Resource" id="id-54e14bef13e44ddc8b16f87357c59412"/>
-    <element xsi:type="archimate:BusinessFunction" name="Policies Library (1001 Lakes)" id="id-49fe5979fc3f4a2c85a7de9a7e2ddfa7"/>
-    <element xsi:type="archimate:BusinessFunction" name="Policies Library (1001 Lakes)" id="id-8f2e48b92def41e18555f6e01d086e90"/>
+    <element xsi:type="archimate:BusinessFunction" name="Policies Library" id="id-49fe5979fc3f4a2c85a7de9a7e2ddfa7"/>
+    <element xsi:type="archimate:BusinessFunction" name="Policies Library" id="id-8f2e48b92def41e18555f6e01d086e90"/>
     <element xsi:type="archimate:BusinessService" id="id-cb2e8f261db349e7b6ed7616bf90259e"/>
   </folder>
   <folder name="Application" id="id-e6a272a47cef4b1e9b6ef40a2ef598a2" type="application"/>
@@ -299,13 +299,13 @@
               <bounds width="16" height="16"/>
             </child>
           </child>
-          <child xsi:type="archimate:DiagramObject" id="id-582bb530405d4b9ca82a76469e4bde73" targetConnections="id-4b912e8df9b84519a8320749b605312c id-5ab783b871304491a4b606d6bba536db id-e1cbe109ef394d18b1e966c9219a9afa" font="1|Sans|6.0|0|GTK|1|" archimateElement="id-35f9bd0b23eb4d56af47c2c2b8151cd9">
+          <child xsi:type="archimate:DiagramObject" id="id-582bb530405d4b9ca82a76469e4bde73" targetConnections="id-4b912e8df9b84519a8320749b605312c id-5ab783b871304491a4b606d6bba536db id-e1cbe109ef394d18b1e966c9219a9afa" archimateElement="id-35f9bd0b23eb4d56af47c2c2b8151cd9">
             <bounds x="312" y="120" width="120" height="55"/>
             <child xsi:type="archimate:Note" id="id-b2197cabf5ee4e4cbb3ba30a895056ff" textAlignment="1" fillColor="#ff7800">
               <bounds width="16" height="16"/>
             </child>
           </child>
-          <child xsi:type="archimate:DiagramObject" id="id-81a810d3ff0d4a368754fa55d8125ba5" font="1|Sans|8.0|0|GTK|1|" archimateElement="id-346e7a05ffcc456bb6eacee3cd7f7a9d">
+          <child xsi:type="archimate:DiagramObject" id="id-81a810d3ff0d4a368754fa55d8125ba5" archimateElement="id-346e7a05ffcc456bb6eacee3cd7f7a9d">
             <bounds x="168" y="120" width="120" height="55"/>
             <child xsi:type="archimate:Note" id="id-4a350e5fd0ea4c5594fb53bc6df044be" textAlignment="1" fillColor="#ff7800">
               <bounds width="16" height="16"/>
@@ -371,7 +371,7 @@
               <bendpoint startX="-1308" startY="148" endX="24" endY="58"/>
             </sourceConnection>
           </child>
-          <child xsi:type="archimate:DiagramObject" id="id-5d905773e43f47ed92121c55893b1b13" targetConnections="id-177a4ba4a1984a5ebce2d21480061cdc" font="1|Sans|8.0|0|GTK|1|" archimateElement="id-8f2e48b92def41e18555f6e01d086e90">
+          <child xsi:type="archimate:DiagramObject" id="id-5d905773e43f47ed92121c55893b1b13" targetConnections="id-177a4ba4a1984a5ebce2d21480061cdc" archimateElement="id-8f2e48b92def41e18555f6e01d086e90">
             <bounds x="516" y="30" width="120" height="55"/>
             <child xsi:type="archimate:Note" id="id-abc4c2fea90744d6af4d40aa42d01f65" textAlignment="1" fillColor="#ff7800">
               <bounds width="16" height="16"/>
@@ -395,7 +395,7 @@
             <bendpoint startX="-126" startY="10" endX="282" endY="54"/>
             <bendpoint startX="-126" startY="-38" endX="282" endY="6"/>
           </sourceConnection>
-          <child xsi:type="archimate:Note" id="id-ff3fc55f96eb42348bf99069b6df5698" textAlignment="1" fillColor="#0096ff">
+          <child xsi:type="archimate:Note" id="id-672007a83cfc4fd3a9643553371c8c50" textAlignment="1" fillColor="#ff7800">
             <bounds width="16" height="16"/>
           </child>
         </child>
@@ -458,7 +458,7 @@ Proprietary technology</content>
           <child xsi:type="archimate:DiagramObject" id="id-906a6bae17524e13a87d9ab763c7ef02" targetConnections="id-d80073467b8b45c7b3105e8904d4e03e" archimateElement="id-26e105e85cdd4bef9a1720782cc41bea">
             <bounds x="15" y="24" width="120" height="55"/>
           </child>
-          <child xsi:type="archimate:DiagramObject" id="id-3ac96ef3128e4a33894680800a22b711" targetConnections="id-03c8b5055fc04ff998e9632c353b2f8b" font="1|Sans|8.0|0|GTK|1|" archimateElement="id-49fe5979fc3f4a2c85a7de9a7e2ddfa7">
+          <child xsi:type="archimate:DiagramObject" id="id-3ac96ef3128e4a33894680800a22b711" targetConnections="id-03c8b5055fc04ff998e9632c353b2f8b" archimateElement="id-49fe5979fc3f4a2c85a7de9a7e2ddfa7">
             <bounds x="636" y="24" width="120" height="55"/>
             <child xsi:type="archimate:Note" id="id-78fc8eeff81648f38b31524fc2c0b31d" textAlignment="1" fillColor="#ff7800">
               <bounds width="16" height="16"/>
@@ -475,7 +475,7 @@ Proprietary technology</content>
             <feature name="labelExpression" value="D.11"/>
             <bendpoint startX="32" startY="56" endX="24" endY="-53"/>
           </sourceConnection>
-          <child xsi:type="archimate:Note" id="id-e852536f8e5943b7bbc4d5c3acee4d80" textAlignment="1" fillColor="#0096ff">
+          <child xsi:type="archimate:Note" id="id-a8d5e8cd516749d0856c9d016a0698b4" textAlignment="1" fillColor="#ff7800">
             <bounds width="16" height="16"/>
           </child>
         </child>
@@ -507,7 +507,7 @@ Proprietary technology</content>
             <bendpoint startX="6" startY="-52" endX="763" endY="-377"/>
             <bendpoint startX="-702" startY="-52" endX="55" endY="-377"/>
           </sourceConnection>
-          <child xsi:type="archimate:Note" id="id-a8aba64f7986481899684e3f54ecaee2" textAlignment="1" fillColor="#0096ff">
+          <child xsi:type="archimate:Note" id="id-1c5e9800297f46d2a1ad46cbfd2b32fe" textAlignment="1" fillColor="#ff7800">
             <bounds width="16" height="16"/>
           </child>
         </child>
