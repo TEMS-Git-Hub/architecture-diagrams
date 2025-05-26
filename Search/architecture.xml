@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:133.0) Gecko/20100101 Firefox/133.0" version="25.0.3">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:139.0) Gecko/20100101 Firefox/139.0" version="27.0.9">
   <diagram name="Page-1" id="HidnJmoXxXeelfIzTNz4">
-    <mxGraphModel dx="2191" dy="1936" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="3132" dy="2327" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -196,7 +195,7 @@
             <mxPoint x="-100" y="-840" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wKjx5liddJb7-0z2vM6S-81" value="8. Returns list of indexes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="wKjx5liddJb7-0z2vM6S-80" connectable="0" vertex="1">
+        <mxCell id="wKjx5liddJb7-0z2vM6S-81" value="&lt;div&gt;8. Returns list of results&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="wKjx5liddJb7-0z2vM6S-80" connectable="0" vertex="1">
           <mxGeometry x="0.3176" y="1" relative="1" as="geometry">
             <mxPoint x="55" y="1" as="offset" />
           </mxGeometry>
@@ -240,7 +239,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wKjx5liddJb7-0z2vM6S-90" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Local index&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#FFB366;strokeWidth=2;" parent="1" vertex="1">
+        <mxCell id="wKjx5liddJb7-0z2vM6S-90" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;Local catalog&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#FFB366;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="-101" y="-240" width="111" height="60" as="geometry" />
         </mxCell>
         <mxCell id="wKjx5liddJb7-0z2vM6S-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endArrow=classic;endFill=1;startArrow=classic;startFill=1;" parent="1" source="wKjx5liddJb7-0z2vM6S-52" edge="1">
@@ -296,7 +295,7 @@
             <mxPoint x="10" y="-1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wKjx5liddJb7-0z2vM6S-98" value="Federated index" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E6FFCC;strokeColor=#FFB570;strokeWidth=2;" parent="1" vertex="1">
+        <mxCell id="wKjx5liddJb7-0z2vM6S-98" value="Federated catalog" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E6FFCC;strokeColor=#FFB570;strokeWidth=2;" parent="1" vertex="1">
           <mxGeometry x="239" y="-894.5" width="110" height="60" as="geometry" />
         </mxCell>
         <mxCell id="wKjx5liddJb7-0z2vM6S-133" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.433;exitY=0.99;exitDx=0;exitDy=0;entryX=0.007;entryY=0.051;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" parent="1" source="wKjx5liddJb7-0z2vM6S-99" target="wKjx5liddJb7-0z2vM6S-112" edge="1">
