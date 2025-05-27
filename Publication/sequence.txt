@@ -4,7 +4,6 @@ title TEMS Publication and contract management Workflow
 actor Participant Admin#lightblue
 participant Data Server#lightblue
 participant "Data bus (needs development\nand configuration)" as DataBus #Lightyellow
-participant Local Index#lightyellow
 participant Auth UI#lightyellow
 participant Contract Service#lightyellow
 participant Policy Service#lightyellow
@@ -18,12 +17,9 @@ Participant Admin->Contract Service: Create new contract - specifiying policies
 
 == Dataset Publication ==
 Local Catalog->Contract Service: Retrieve the contract
-Participant Admin->Local Catalog:Create a dataset - specifying the contract\n<color:#red>And the URL to the data and the shape ?
-Local Catalog->Local Index: Notify of dataset publication
+Participant Admin->Local Catalog:Create a dataset - specifying the contract
 Local Catalog->Federated Catalog: Upload self-description of datas
-Local Index->DataBus: Pull Data
 DataBus->Data Server: Pull Data
-Local Index->Local Index: Generate\n new index
 
 #Publication: means notification at the dataspace level that a new index/resource/catalog/participant exists
 #Question: is the selection of a shape and the indexing process mandatory?
