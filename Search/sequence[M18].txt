@@ -5,7 +5,6 @@ actor ParticipantEmployee#lightblue
 participant Personal Wallet#lightyellow
 participant Search UI#lightyellow
 participant Search Engine #lightyellow
-participant Local Index#lightyellow
 participant Management API #lightyellow
 participant Contract Service #lightyellow
 #participant Local Catalog#lightyellow
@@ -20,13 +19,12 @@ ParticipantEmployee->Personal Wallet: Authentication workflow
 ParticipantEmployee->Search UI: Enter search criteria
 Search UI->Search Engine: Execute the\n search request
 Search Engine->Federated Catalogue: Retrieves list of data offerings matching search criteria
-Search Engine->Management API: Negotiate access to one dataset\n and the associated index
+Search Engine->Management API: Negotiate access to one dataset
 Management API->Contract Service: Negotiation workflow
 Search Engine->Search UI: Display list of results
 == Negotiation and data access ==
 ParticipantEmployee->Search UI: Filter results
 Search UI->Search Engine: Build search query
-Search Engine->Local Index: Requests Indexes
 Search UI->ParticipantEmployee: Display search results
 ParticipantEmployee->Search UI: Click on details of one asset
 Search UI->Management API: Negotiation workflow
