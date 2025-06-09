@@ -10,4 +10,6 @@ It covers 5 user stories:
 - Access to data
 
 Each directory covers one user story. They contain `.txt` files that are sequence diagrams. These diagrams can be viewed using https://sequencediagram.org/
-Some also contain draw.io diagrams in `.xml`files.
+Some also contain https://draw.io diagrams in `.xml`files.
+
+The [Functional Architecture](./Functional_Architecture.archimate) file can be view with [Archimate Tool](https://www.archimatetool.com/).
