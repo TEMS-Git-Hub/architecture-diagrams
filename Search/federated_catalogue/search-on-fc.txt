@@ -1,0 +1,26 @@
+title TEMS Search on the Federated Catalogue
+
+# Existing in the participant
+actor ParticipantEmployee#lightblue
+participant Personal Wallet#lightyellow
+participant Search UI#lightblue
+participant Search Engine #lightblue
+participant Federated Catalogue#lightblue
+
+== Authenticate ==
+ParticipantEmployee->Personal Wallet: Authentication workflow
+== Search ==
+# We need a way for the seach UI to work as the Employee
+ParticipantEmployee->Search UI: Logs-in
+Search UI->Search Engine: Trigger loading
+Search Engine->Federated Catalogue: Request all Selfs-Descriptions
+Search Engine->Search UI: Maps SD and returns list
+ParticipantEmployee->Search UI: See the list of offers
+ParticipantEmployee->Search UI: Search for a keyword
+Search UI->Search Engine: Filter the results
+ParticipantEmployee->Search UI: Access the details\nin a modal
+ParticipantEmployee->Search UI: If service is external\nreach out to it
+
+== Next Steps ==
+ParticipantEmployee->Search UI: Negotiate contract to access the service
+# Generic shape requirements: Should everything have some information like rdfs:title / rdfs:author etc ?
