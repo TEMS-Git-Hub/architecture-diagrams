@@ -9,7 +9,8 @@ end box
 Participant "DID Service" as DID
 Participant "Trust Framework" as TF
 
-box "Verifier Entity" 
+box "Verifier Entity"  
+    Participant "Service" as S
     Participant "Verifier" as V
     Participant "Secure Token Service" as STSV
 end box
@@ -17,29 +18,48 @@ end box
 W -> DID: Publish DID/Document
 
 == Presentation Flow ==
-
+autonumber
 C -> STS: Request Self Issued ID Token
+note right
+    This request must authorize access to a given set of VCs chosen by the client. EDC's implementation
+    uses scopes.
+
+    4.3.2: How a Self-Issued ID token is obtained from a Secure Token Service is implementation-specific.
+end note
+STS -> STS: Build Access Token and ssid-token
+STS -> W: Sign ssid-token incl. Access Token
+W -> STS: Signed ssid-token incl. Access Token
 STS -> C: ssid-token incl. Access Token
-C -> V: Service Request w/ ssid-token incl. Access Token
+C -> S: Service Request w/ ssid-token incl. Access Token
+
+S-> V: Check ssid-token
 
 V -> DID: Resolve DID
 DID -> V: DID Document
-
 V -> V:  Validate ssid-token
+
 V -> TF: Validate client did
+TF -> V: OK/KO
 
 V -> STSV: Request Self Issued ID Token incl. same access token
 STSV -> V: ssid-token (2nd) incl. verifier's DID and access token
 V -> W: VP request w/ssid-token (2nd)
+W -> DID: Resolve DID
+DID -> W: DID Document
 W -> W : Validate ssid-token
 W -> W : Extract access token
 W -> W: Validate VP request against access token
 W -> V: VP response
-V -> V: Validate VP
-V -> TF: Validate VP
-V -> S: Process Request
 
-S -> V: Request response
-V -> C: Request response
+V -> DID: Resolve DID
+DID -> V: DID Document
+V -> V: Validate VP
+
+V -> TF: Validate VP
+TF -> V: OK/KO
+V -> S: ssid-token validation incl. Participant Agent (incl. VCs)
+
+S -> S: Process request
+S -> C: Request response
 
 @enduml
