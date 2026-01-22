@@ -1,0 +1,37 @@
+@startuml tems-policy-template-creation
+title TEMS Policy Template Creation
+
+actor "End User" as User
+participant "Participant UI" as UI
+participant "Policy Editor API" as EditorAPI
+database "Policy Template Storage" as Store
+
+User -> UI: Create policy template
+UI -> EditorAPI: POST /templates/drafts\n(template draft payload)
+EditorAPI -> EditorAPI: Build and validate\nODRL JSON-LD skeleton
+
+alt Success
+  EditorAPI -> Store: Persist template draft\n(status=Draft)
+  Store --> EditorAPI: draftId, version
+  EditorAPI --> UI: 201 Created (draftId, version)
+  UI --> User: Show ODRL JSON-LD skeleton
+else Error
+  EditorAPI --> UI: 400 Bad Request\n(validation errors + pointers)
+  UI --> User: Show errors
+end
+
+User -> UI: Publish template
+UI -> EditorAPI: POST /templates/{draftId}/publish
+EditorAPI -> EditorAPI: Build and validate\nODRL JSON-LD skeleton
+
+alt Success
+  EditorAPI -> Store: Mark template version Published\n(immutable, timestamp, publisher)
+  Store --> EditorAPI: templateId, publishedVersion
+  EditorAPI --> UI: 200 OK (templateId, publishedVersion)
+  UI --> User: Show ODRL JSON-LD skeleton
+else Error
+  EditorAPI --> UI: 400 Bad Request\n(validation errors + pointers)
+  UI --> User: Show errors
+end
+
+@enduml

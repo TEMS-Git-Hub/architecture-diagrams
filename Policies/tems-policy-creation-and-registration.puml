@@ -1,0 +1,66 @@
+@startuml tems-policy-creation-and-registration
+title Policy Creation and Registration (Template-based)
+
+actor "End User" as User
+participant "Participant UI" as UI
+participant "Policy Editor API" as EditorAPI
+database "Policy Template Storage\n(Templates only)" as Store
+participant "EDC Control Plane" as ControlPlane
+
+== Policy Creation (from published template) ==
+
+User -> UI: Initiate policy creation
+
+UI -> EditorAPI: GET /templates?status=Published
+EditorAPI -> Store: Load published templates
+Store --> EditorAPI: Template list
+EditorAPI --> UI: Template list
+
+UI --> User: Display templates
+User -> UI: Select template + fill parameters
+
+UI -> EditorAPI: POST /policies/drafts\n(templateId, parameters)
+EditorAPI -> Store: Load template
+Store --> EditorAPI: ODRL template skeleton
+
+EditorAPI -> EditorAPI: Materialize policy\n(template + parameters)
+EditorAPI -> EditorAPI: Validate policy\n(parameters)
+
+alt Validation successful
+    EditorAPI --> UI: 201 Created (policyDraftId)
+    UI --> User: Show generated ODRL policy
+else Validation error
+    EditorAPI --> UI: 400 Bad Request\n(validation errors)
+    UI --> User: Show errors
+end
+
+note over EditorAPI
+Concrete policy persistence is intentionally omitted here.
+Where and how policies are stored (if at all) must be decided in a later phase.
+end note
+
+== Publish and Register Policy ==
+
+User -> UI: Publish policy
+UI -> EditorAPI: POST /policies/{policyDraftId}/publish
+EditorAPI -> EditorAPI: Re-validate on publish
+
+alt Publish successful
+    EditorAPI --> UI: 200 OK (policyId)
+
+    UI -> ControlPlane: POST /v3/policydefinitions\n(ODRL policy JSON-LD)
+
+    alt EDC registration successful
+        ControlPlane --> UI: Policy registered\n(edcPolicyId)
+        UI --> User: ✓ Policy published and registered
+    else EDC validation error
+        ControlPlane --> UI: Policy validation error
+        UI --> User: Show EDC error
+    end
+
+else Publish error
+    EditorAPI --> UI: 400 Bad Request\n(validation errors)
+    UI --> User: Show errors
+end
+
+@enduml
