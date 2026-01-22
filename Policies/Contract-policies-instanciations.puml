@@ -1,0 +1,127 @@
+  @startuml Contract Definition Publishing Flow                                                                                                        
+  !theme plain                                                                                                                                         
+                                                                                                                                                       
+  actor "End User" as User                                                                                                                             
+  participant "Participant UI" as UI                                                                                                                   
+  participant "Policy Editor\n(Dataspace Service)" as PolicyEditor                                                                                     
+  participant "Control Plane\n(EDC)" as ControlPlane                                                                                                   
+                                                                                                                                                       
+  title Contract Definition Publishing Flow                                                                                                            
+                                                                                                                                                       
+  == Asset Selection / Definition ==                                                                                                                   
+                                                                                                                                                       
+  User -> UI: Initiate contract publishing                                                                                                             
+  UI -> ControlPlane: GET /v3/assets (fetch existing assets)                                                                                           
+  ControlPlane --> UI: List of assets                                                                                                                  
+                                                                                                                                                       
+  alt Select existing asset                                                                                                                            
+      UI --> User: Display asset list                                                                                                                  
+      User -> UI: Select asset                                                                                                                         
+  else Define new asset                                                                                                                                
+      User -> UI: Create new asset (name, data address, properties)                                                                                    
+      UI -> ControlPlane: POST /v3/assets                                                                                                              
+      alt Success                                                                                                                                      
+          ControlPlane --> UI: Asset created (assetId)                                                                                                 
+      else Error                                                                                                                                       
+          ControlPlane --> UI: Validation error                                                                                                        
+          UI --> User: Show error, request corrections                                                                                                 
+      end                                                                                                                                              
+  end                                                                                                                                                  
+                                                                                                                                                       
+  == Access Policy Creation ==                                                                                                                         
+                                                                                                                                                       
+  User -> UI: Initiate Access Policy creation                                                                                                          
+  UI -> PolicyEditor: GET /templates (fetch policy templates)                                                                                          
+  PolicyEditor --> UI: List of templates\n(e.g., Time-limited, Payment, Geo-restricted, Open)                                                          
+                                                                                                                                                       
+  UI --> User: Display templates\n(dropdown or modal cards)                                                                                            
+                                                                                                                                                       
+  alt Select template                                                                                                                                  
+      User -> UI: Select template (e.g., "Time-limited access")                                                                                        
+      UI -> PolicyEditor: GET /templates/{templateId}/schema                                                                                           
+      PolicyEditor --> UI: Template schema\n(required fields: expirationDate, etc.)                                                                    
+      UI --> User: Display template form                                                                                                               
+      User -> UI: Fill template parameters\n(e.g., expirationDate: 2026-12-31)                                                                         
+                                                                                                                                                       
+  else Create from scratch                                                                                                                             
+      User -> UI: Skip templates, create custom                                                                                                        
+      UI -> PolicyEditor: GET /odrl/schema                                                                                                             
+      PolicyEditor --> UI: ODRL structure\n(permissions, obligations, prohibitions options)                                                            
+      UI --> User: Display ODRL builder form                                                                                                           
+      User -> UI: Define custom policy\n(permissions, constraints, duties)                                                                             
+  end                                                                                                                                                  
+                                                                                                                                                       
+  UI -> UI: Build ODRL policy JSON                                                                                                                     
+                                                                                                                                                       
+  UI -> ControlPlane: POST /v3/policydefinitions                                                                                                       
+  alt Success                                                                                                                                          
+      ControlPlane --> UI: Access Policy created (accessPolicyId)                                                                                      
+  else Error                                                                                                                                           
+      ControlPlane --> UI: Policy validation error                                                                                                     
+      UI --> User: Show error, request corrections                                                                                                     
+  end                                                                                                                                                  
+                                                                                                                                                       
+  == Contract Policy Creation ==                                                                                                                       
+                                                                                                                                                       
+  User -> UI: Initiate Contract Policy creation                                                                                                        
+                                                                                                                                                       
+  alt Reuse Access Policy                                                                                                                              
+      UI --> User: "Reuse Access Policy for Contract Policy?"                                                                                          
+      User -> UI: Yes, reuse                                                                                                                           
+      UI -> UI: contractPolicyId = accessPolicyId                                                                                                      
+                                                                                                                                                       
+  else Create separate Contract Policy                                                                                                                 
+      UI -> PolicyEditor: GET /templates                                                                                                               
+      PolicyEditor --> UI: List of templates                                                                                                           
+                                                                                                                                                       
+      note over User, UI                                                                                                                               
+          Same flow as Access Policy:                                                                                                                  
+          - Select template OR create from scratch                                                                                                     
+          - Fill parameters                                                                                                                            
+          - Build ODRL JSON                                                                                                                            
+      end note                                                                                                                                         
+                                                                                                                                                       
+      UI -> ControlPlane: POST /v3/policydefinitions                                                                                                   
+      alt Success                                                                                                                                      
+          ControlPlane --> UI: Contract Policy created (contractPolicyId)                                                                              
+      else Error                                                                                                                                       
+          ControlPlane --> UI: Policy validation error                                                                                                 
+          UI --> User: Show error, request corrections                                                                                                 
+      end                                                                                                                                              
+  end                                                                                                                                                  
+                                                                                                                                                       
+  == Review & Confirmation ==                                                                                                                          
+                                                                                                                                                       
+  UI --> User: Display summary view\n(Asset + Access Policy + Contract Policy)                                                                         
+                                                                                                                                                       
+  note over User, UI                                                                                                                                   
+      Human-readable policy display:                                                                                                                   
+      - "Access expires on: Dec 31, 2026"                                                                                                              
+      - "Payment required: €50"                                                                                                                        
+      - "Restricted to: EU countries"                                                                                                                  
+  end note                                                                                                                                             
+                                                                                                                                                       
+  User -> UI: Confirm & Publish                                                                                                                        
+                                                                                                                                                       
+  == Contract Definition Creation ==                                                                                                                   
+                                                                                                                                                       
+  UI -> ControlPlane: POST /v3/contractdefinitions\n(assetId, accessPolicyId, contractPolicyId)                                                        
+                                                                                                                                                       
+  alt Success                                                                                                                                          
+      ControlPlane --> UI: Contract Definition created (contractDefinitionId)                                                                          
+      UI --> User: ✓ Contract published successfully                                                                                                   
+      UI --> User: Redirect to Contract Definitions list                                                                                               
+                                                                                                                                                       
+  else Error                                                                                                                                           
+      ControlPlane --> UI: Error (e.g., asset not found, policy conflict)                                                                              
+      UI --> User: Show error details                                                                                                                  
+  end                                                                                                                                                  
+                                                                                                                                                       
+  == Post-Publication ==                                                                                                                               
+                                                                                                                                                       
+  User -> UI: Navigate to Contract Definitions                                                                                                         
+  UI -> ControlPlane: GET /v3/contractdefinitions                                                                                                      
+  ControlPlane --> UI: List including new contract                                                                                                     
+  UI --> User: Display contract definition\nwith linked asset & policies                                                                               
+                                                                                                                                                       
+  @enduml
